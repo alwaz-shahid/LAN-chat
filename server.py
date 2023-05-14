@@ -8,6 +8,7 @@ PORT = 5000  # Port to listen on
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Create a TCP/IP socket
 server.bind((HOST, PORT))  # Bind the socket to a specific address and port
+print("  \n \t \t    server is running \n")
 server.listen()  # Listen for incoming connections
 
 clients = []  # List to keep track of connected clients
@@ -30,6 +31,7 @@ def decrypt_message(encrypted_message, key):
 
 def broadcast(message, sender):
     """Send a message to all connected clients except the sender."""
+    
     for client in clients:
         if client != sender:
             key = keys[client]
